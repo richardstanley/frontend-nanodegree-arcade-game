@@ -1,8 +1,8 @@
 // Entity is the superclass for all subsequent subclassed entities.
 // All Entity subclasses will have a default image of the 'Selector.png',
-// x and y positions set to 700 and 700 (i.e. offscreen) and a method render() 
-// which renders the sprite.  Its up to the subclassed entities to change
-// these defaults as needed.
+// x and y positions set to 700 and 700 (i.e. offscreen), a method render() 
+// which renders the sprite, and a overlap test method.  Its up to the 
+// subclassed entities to change these defaults as needed.
 var Entity = function( ) {
     this.sprite = 'images/Selector.png';
 	this.x = 700;
@@ -53,7 +53,7 @@ Enemy.prototype.update = function(dt) {
 	}
     
     if (this.testOverlap(player)){
- //   	player.captured ();
+    	player.captured ();
     }
 
 }
@@ -104,7 +104,7 @@ Player.prototype.succeeds = function () {
 		alert('Congratulations!  You collected a star!  Try to get more!');
 	}
 	else {
-		alert('Congratulations!  You collected ' + String(this.starsCollected) + ' stars!');
+		alert('Congratulations!  You collected ' + this.starsCollected + ' stars!');
 	}
 
 }
